@@ -8,14 +8,13 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 DAY_OF_THE_WEEK = ['sunday', 'monday', 'tuesday', 'wednedsay', 'thursday', 'friday', 'saturday']
-NYC = ['new york', "new york city", "ny", "nyc"]
+NYC = ['new york', 'new york city', 'ny', 'nyc']
 CHICAGO = ['chicago', 'chicago il', 'chicago, il', 'chi']
 WASHINGTON = ['washington', 'dc', 'washington dc', 'washington, dc', 'was']
+CITIES = ['new york', 'chicago', 'washington']
 
 def validation(question_text, valid_values):
-    """
-    Collects the user input and validations against the provided list
-    """
+    """Collects the user input and validations against the provided list"""
 
     while True:
         print (question_text)
@@ -38,20 +37,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
 
     # get user input for city (chicago, new york city, washington).
-    while 1:
-        print('What city would you like to use for data exploration? (Chicago, New York or Washington)')
-        city = input ().lower()
-        if (city in WASHINGTON):
-            city = 'washington'
-            break
-        elif (city in NYC):
-            city = 'new york city'
-            break
-        elif (city in CHICAGO):
-            city = 'chicago'
-            break
-        else:
-            print ("Your entry was not recognized. Please provide a valid input.")
+    city = validation ('What city would you like to use for data exploration? (Chicago, New York or Washington)', CITIES)
 
     # get user input for month (all, january, february, ... , june)
     month = validation ('What month would you like to use for data exploration? (all, january, february, ... , june)', MONTHS)
@@ -181,6 +167,7 @@ def user_stats(df):
         print ('The most common year of birth is: {}'.format (int(df['Birth Year'].mode()[0])))
     except KeyError:
         print ('There is no birth year information in this file')
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -208,12 +195,11 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        print_filtered_data (df, 0, 5)
+        print_filtered_data (df, 0, 10)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
