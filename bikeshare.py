@@ -167,6 +167,7 @@ def user_stats(df):
         print ('The most common year of birth is: {}'.format (int(df['Birth Year'].mode()[0])))
     except KeyError:
         print ('There is no birth year information in this file')
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -194,12 +195,11 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        print_filtered_data (df, 0, 5)
+        print_filtered_data (df, 0, 10)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
