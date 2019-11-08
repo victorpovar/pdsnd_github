@@ -8,7 +8,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 MONTHS = ['january', 'february', 'march', 'april', 'may', 'june']
 DAY_OF_THE_WEEK = ['sunday', 'monday', 'tuesday', 'wednedsay', 'thursday', 'friday', 'saturday']
-NYC = ['new york', "new york city", "ny", "nyc"]
+NYC = ['new york', 'new york city', 'ny', 'nyc']
 CHICAGO = ['chicago', 'chicago il', 'chicago, il', 'chi']
 WASHINGTON = ['washington', 'dc', 'washington dc', 'washington, dc', 'was']
 CITIES = ['new york', 'chicago', 'washington']
